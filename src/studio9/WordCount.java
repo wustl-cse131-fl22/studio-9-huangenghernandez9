@@ -1,9 +1,11 @@
 package studio9;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import assignment8.Entity;
 import support.cse131.NotYetImplementedException;
 
 public class WordCount {
@@ -29,8 +31,20 @@ public class WordCount {
 	 */
 	public static Map<String, Integer> countWords(List<String> words) {
 
-		// FIXME
-		throw new NotYetImplementedException();
+		Map<String, Integer> map = new HashMap<>();
+		
+		for (int i = 0; i < words.size(); i++) {
+			
+		String currWord = words.get(i);
+			
+			if (map.get(currWord) == null) {
+				map.put(currWord, 1);
+			} else {
+				int count = map.get(currWord) + 1;
+				map.put(currWord, count);
+			}
+		}
 
+		return map;
 	}
 }
